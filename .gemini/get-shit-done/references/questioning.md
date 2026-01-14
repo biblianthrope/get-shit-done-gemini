@@ -10,9 +10,9 @@ Don't interrogate. Collaborate.
 </philosophy>
 
 <critical_rule>
-**ALL questions MUST use AskUserQuestion.**
+**ALL questions MUST use Numbered Lists.**
 
-Never ask questions inline as plain text. Every exploration question uses the AskUserQuestion tool with thoughtful options that help the user articulate their vision.
+Never ask questions inline as plain text without options. Every exploration question uses a clear question followed by a numbered list of thoughtful options that help the user articulate their vision.
 
 This applies to:
 - Opening questions ("What do you want to build?")
@@ -21,16 +21,15 @@ This applies to:
 - Boundary questions ("What's out of scope?")
 - Decision gates ("Ready to proceed?")
 
-The AskUserQuestion format helps users think by presenting concrete options to react to, rather than facing a blank text field.
+The numbered list format helps users think by presenting concrete options to react to, rather than facing a blank text field.
 </critical_rule>
 
 <conversation_arc>
 **1. Open**
 
-Use AskUserQuestion:
-- header: "Vision"
-- question: "What do you want to build?"
-- options: Contextual starting points if available, otherwise broad categories + "Let me describe it"
+Use Numbered List:
+- **Vision:** "What do you want to build?"
+- **Options:** Contextual starting points if available, otherwise broad categories + "Let me describe it"
 
 Let them respond. Then follow up based on what they said.
 
@@ -38,37 +37,33 @@ Let them respond. Then follow up based on what they said.
 
 Whatever they said — dig into it. What excited them? What problem sparked this?
 
-Use AskUserQuestion with options that probe what they mentioned:
-- header: "[Topic they mentioned]"
-- question: "You mentioned [X] — what would that actually look like?"
-- options: 2-3 interpretations of what they might mean + "Something else"
+Use Numbered List with options that probe what they mentioned:
+- **[Topic they mentioned]:** "You mentioned [X] — what would that actually look like?"
+- **Options:** 2-3 interpretations of what they might mean + "Something else"
 
 **3. Sharpen the core**
 
 Help them distinguish the essential from the nice-to-have.
 
-Use AskUserQuestion:
-- header: "Core"
-- question: "If you could only nail one thing, what would it be?"
-- options: Key features/aspects they've mentioned + "All equally important" + "Something else"
+Use Numbered List:
+- **Core:** "If you could only nail one thing, what would it be?"
+- **Options:** Key features/aspects they've mentioned + "All equally important" + "Something else"
 
 **4. Find the boundaries**
 
 What is this NOT? Explicit exclusions prevent scope creep later.
 
-Use AskUserQuestion:
-- header: "Scope"
-- question: "What's explicitly NOT in v1?"
-- options: Things that might be tempting to include + "Nothing specific" + "Let me list them"
+Use Numbered List:
+- **Scope:** "What's explicitly NOT in v1?"
+- **Options:** Things that might be tempting to include + "Nothing specific" + "Let me list them"
 
 **5. Ground in reality**
 
 Only ask about constraints that actually exist. Don't invent concerns.
 
-Use AskUserQuestion:
-- header: "Constraints"
-- question: "Any hard constraints?"
-- options: Common constraint types relevant to context + "None" + "Yes, let me explain"
+Use Numbered List:
+- **Constraints:** "Any hard constraints?"
+- **Options:** Common constraint types relevant to context + "None" + "Yes, let me explain"
 </conversation_arc>
 
 <good_vs_bad>
@@ -77,10 +72,13 @@ Use AskUserQuestion:
 - Free-form "Tell me more about X" without options
 - Any question that leaves the user staring at a blank input
 
-**GOOD — AskUserQuestion with options:**
-- header: "Audience"
-- question: "Who is this for?"
-- options: ["Just me", "My team", "Public users", "Let me describe"]
+**GOOD — Numbered List with options:**
+- **Audience:** "Who is this for?"
+- **Options:**
+  1. Just me
+  2. My team
+  3. Public users
+  4. Let me describe
 
 **BAD — Corporate speak:**
 - "What are your success criteria?"
@@ -88,34 +86,47 @@ Use AskUserQuestion:
 - "Have you done X before?" (irrelevant — Gemini builds)
 
 **GOOD — Concrete options that help them think:**
-- header: "Done"
-- question: "How will you know this is working?"
-- options: ["I'm using it daily", "Specific metric improves", "Replaces current workflow", "Let me describe"]
+- **Done:** "How will you know this is working?"
+- **Options:**
+  1. I'm using it daily
+  2. Specific metric improves
+  3. Replaces current workflow
+  4. Let me describe
 
 **BAD — Checklist walking:**
 - Ask about audience → ask about constraints → ask about tech stack (regardless of what user said)
 
 **GOOD — Following threads with targeted options:**
-- User mentions frustration → AskUserQuestion with specific frustration interpretations as options → their selection reveals the core value prop
+- User mentions frustration → Numbered List with specific frustration interpretations as options → their selection reveals the core value prop
 </good_vs_bad>
 
 <probing_techniques>
-When answers are vague, don't accept them. Probe with AskUserQuestion:
+When answers are vague, don't accept them. Probe with Numbered Lists:
 
 **"Make it good"** →
-- header: "Good"
-- question: "What does 'good' mean here?"
-- options: ["Fast", "Beautiful", "Simple", "Reliable", "Let me describe"]
+- **Good:** "What does 'good' mean here?"
+- **Options:**
+  1. Fast
+  2. Beautiful
+  3. Simple
+  4. Reliable
+  5. Let me describe
 
 **"Users"** →
-- header: "Users"
-- question: "Which users?"
-- options: ["Just me", "My team", "Specific type of person", "Let me describe"]
+- **Users:** "Which users?"
+- **Options:**
+  1. Just me
+  2. My team
+  3. Specific type of person
+  4. Let me describe
 
 **"It should be easy to use"** →
-- header: "Easy"
-- question: "Easy how?"
-- options: ["Fewer clicks", "No learning curve", "Works on mobile", "Let me describe"]
+- **Easy:** "Easy how?"
+- **Options:**
+  1. Fewer clicks
+  2. No learning curve
+  3. Works on mobile
+  4. Let me describe
 
 Specifics are everything. Vague in = vague out.
 </probing_techniques>
@@ -135,14 +146,13 @@ If gaps remain, weave questions naturally into the conversation. Don't suddenly 
 </coverage_check>
 
 <decision_gate>
-When you feel you understand the vision, use AskUserQuestion:
+When you feel you understand the vision, use Numbered List:
 
-- header: "Ready?"
-- question: "Ready to create PROJECT.md, or explore more?"
-- options (ALL THREE REQUIRED):
-  - "Create PROJECT.md" - Finalize and continue
-  - "Ask more questions" - I'll dig into areas we haven't covered
-  - "Let me add context" - You have more to share
+- **Ready?** "Ready to create PROJECT.md, or explore more?"
+- **Options** (ALL THREE REQUIRED):
+  1. **Create PROJECT.md** - Finalize and continue
+  2. **Ask more questions** - I'll dig into areas we haven't covered
+  3. **Let me add context** - You have more to share
 
 If "Ask more questions" → identify gaps from coverage check → ask naturally → return to gate.
 

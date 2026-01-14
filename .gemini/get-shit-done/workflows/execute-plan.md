@@ -529,7 +529,7 @@ ls .planning/phases/*/SUMMARY.md 2>/dev/null | sort -r | head -2 | tail -1
 
 If previous phase SUMMARY.md has "Issues Encountered" != "None" or "Next Phase Readiness" mentions blockers:
 
-Use AskUserQuestion:
+Use Numbered List:
 
 - header: "Previous Issues"
 - question: "Previous phase had unresolved items: [summary]. How to proceed?"
@@ -1605,7 +1605,7 @@ fi
 Review these now?
 ```
 
-Use AskUserQuestion:
+Use Numbered List:
 - header: "Phase Issues"
 - question: "[N] issues were logged during this phase. Review now?"
 - options:
