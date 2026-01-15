@@ -148,8 +148,22 @@ function install(isGlobal) {
 
   console.log(`  Installing to ${cyan}${locationLabel}${reset}\n`);
 
+  // Cleanup previous installation
+  const pathsToRemove = [
+    path.join(claudeDir, 'commands', 'gsd'),
+    path.join(claudeDir, 'get-shit-done'),
+    path.join(claudeDir, 'agents'),
+    path.join(claudeDir, 'rules')
+  ];
+
+  for (const p of pathsToRemove) {
+    if (fs.existsSync(p)) {
+      fs.rmSync(p, { recursive: true, force: true });
+    }
+  }
+
   // Create commands directory
-  const commandsDir = path.join(geminiDir, 'commands');
+  const commandsDir = path.join(claudeDir, 'commands');
   fs.mkdirSync(commandsDir, { recursive: true });
 
   // Copy commands/gsd with path replacement
