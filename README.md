@@ -1,6 +1,6 @@
 <div align="center">
 
-# GET SHIT DONE (Gemini Edition)
+# GET SHIT DONE (Gemini Edition) - Seems to be working quite well for me, your results may vary! /Cars10
 
 **A light-weight and powerful meta-prompting, context engineering and spec-driven development system for Gemini CLI.**
 
@@ -19,7 +19,7 @@ npx get-shit-done-gemini
 
 <br>
 
-![GSD Install](assets/terminal.svg)
+![GSD Install](assets/gsd-install.png)
 
 <br>
 
