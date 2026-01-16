@@ -45,7 +45,7 @@ Created `agents/gsd-researcher.md` following the gsd-debugger pattern establishe
 
 **Key sections included:**
 - `<role>` - Research agent identity, spawned by research orchestrators
-- `<philosophy>` - Claude's training as hypothesis, honest reporting, investigation vs confirmation
+- `<philosophy>` - Gemini's training as hypothesis, honest reporting, investigation vs confirmation
 - `<research_modes>` - 4 modes: ecosystem, feasibility, implementation, comparison
 - `<tool_strategy>` - Context7 first, official docs, WebSearch with verification
 - `<source_hierarchy>` - HIGH/MEDIUM/LOW confidence levels with attribution requirements

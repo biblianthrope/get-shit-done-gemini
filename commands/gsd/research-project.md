@@ -99,14 +99,14 @@ Your STACK.md feeds into /gsd:create-roadmap. Be prescriptive:
 </downstream_consumer>
 
 <quality_gate>
-- [ ] Versions are current (not Claude's training data)
+- [ ] Versions are current (not Gemini's training data)
 - [ ] Rationale explains WHY, not just WHAT
 - [ ] Confidence levels assigned
 </quality_gate>
 
 <output>
 Write to: .planning/research/STACK.md
-Use template: ~/.claude/get-shit-done/templates/research-project/STACK.md
+Use template: ~/.gemini/get-shit-done/templates/research-project/STACK.md
 </output>
 ", subagent_type="gsd-researcher", description="Stack research")
 
@@ -145,7 +145,7 @@ Your FEATURES.md feeds into /gsd:define-requirements. Categorize clearly:
 
 <output>
 Write to: .planning/research/FEATURES.md
-Use template: ~/.claude/get-shit-done/templates/research-project/FEATURES.md
+Use template: ~/.gemini/get-shit-done/templates/research-project/FEATURES.md
 </output>
 ", subagent_type="gsd-researcher", description="Features research")
 
@@ -184,7 +184,7 @@ Your ARCHITECTURE.md informs phase structure in roadmap. Include:
 
 <output>
 Write to: .planning/research/ARCHITECTURE.md
-Use template: ~/.claude/get-shit-done/templates/research-project/ARCHITECTURE.md
+Use template: ~/.gemini/get-shit-done/templates/research-project/ARCHITECTURE.md
 </output>
 ", subagent_type="gsd-researcher", description="Architecture research")
 
@@ -223,7 +223,7 @@ Your PITFALLS.md prevents mistakes in roadmap/planning. For each pitfall:
 
 <output>
 Write to: .planning/research/PITFALLS.md
-Use template: ~/.claude/get-shit-done/templates/research-project/PITFALLS.md
+Use template: ~/.gemini/get-shit-done/templates/research-project/PITFALLS.md
 </output>
 ", subagent_type="gsd-researcher", description="Pitfalls research")
 ```
@@ -233,7 +233,7 @@ Use template: ~/.claude/get-shit-done/templates/research-project/PITFALLS.md
 ## 6. Synthesize Results
 
 After all agents complete, read their outputs and write `.planning/research/SUMMARY.md`:
-- Read template: `~/.claude/get-shit-done/templates/research-project/SUMMARY.md`
+- Read template: `~/.gemini/get-shit-done/templates/research-project/SUMMARY.md`
 - Synthesize executive summary from all 4 files
 - Add confidence assessment
 

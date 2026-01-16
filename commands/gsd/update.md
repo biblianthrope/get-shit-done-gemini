@@ -6,7 +6,7 @@ description: Update GSD to latest version with changelog display
 <objective>
 Check for GSD updates, install if available, and display what changed.
 
-Provides a better update experience than raw `npx get-shit-done-cc` by showing version diff and changelog entries.
+Provides a better update experience than raw `npx get-shit-done-gemini` by showing version diff and changelog entries.
 </objective>
 
 <process>
@@ -15,7 +15,7 @@ Provides a better update experience than raw `npx get-shit-done-cc` by showing v
 Read installed version:
 
 ```bash
-cat ~/.claude/get-shit-done/VERSION 2>/dev/null
+cat ~/.gemini/get-shit-done/VERSION 2>/dev/null
 ```
 
 **If VERSION file missing:**
@@ -36,14 +36,14 @@ Proceed to install step (treat as version 0.0.0 for comparison).
 Check npm for latest version:
 
 ```bash
-npm view get-shit-done-cc version 2>/dev/null
+npm view get-shit-done-gemini version 2>/dev/null
 ```
 
 **If npm check fails:**
 ```
 Couldn't check for updates (offline or npm unavailable).
 
-To update manually: `npx get-shit-done-cc --global`
+To update manually: `npx get-shit-done-gemini --global`
 ```
 
 STOP here if npm unavailable.
@@ -81,7 +81,7 @@ STOP here if ahead.
 Run the update:
 
 ```bash
-npx get-shit-done-cc --global
+npx get-shit-done-gemini --global
 ```
 
 Capture output. If install fails, show error and STOP.
@@ -97,7 +97,7 @@ Use WebFetch tool with:
 **If fetch fails:**
 Fall back to local:
 ```bash
-cat ~/.claude/get-shit-done/CHANGELOG.md 2>/dev/null
+cat ~/.gemini/get-shit-done/CHANGELOG.md 2>/dev/null
 ```
 </step>
 
@@ -133,7 +133,7 @@ Format beautiful output:
 
 ────────────────────────────────────────────────────────────
 
-⚠️  Restart Claude Code to pick up the new commands.
+⚠️  Restart Gemini CLI to pick up the new commands.
 
 [View full changelog](https://github.com/glittercowboy/get-shit-done/blob/main/CHANGELOG.md)
 ```

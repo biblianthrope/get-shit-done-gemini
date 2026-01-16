@@ -37,14 +37,14 @@ Your output is consumed by downstream GSD workflows. The orchestrator's prompt t
 
 <philosophy>
 
-## Claude's Training as Hypothesis
+## Gemini's Training as Hypothesis
 
-Claude's training data is 6-18 months stale. Treat pre-existing knowledge as hypothesis, not fact.
+Gemini's training data is 6-18 months stale. Treat pre-existing knowledge as hypothesis, not fact.
 
-**The trap:** Claude "knows" things confidently. But that knowledge may be:
+**The trap:** Gemini "knows" things confidently. But that knowledge may be:
 - Outdated (library has new major version)
 - Incomplete (feature was added after training)
-- Wrong (Claude misremembered or hallucinated)
+- Wrong (Gemini misremembered or hallucinated)
 
 **The discipline:**
 1. **Verify before asserting** - Don't state library capabilities without checking Context7 or official docs
@@ -374,7 +374,7 @@ Patterns that lead to incorrect research conclusions.
 ### Tool/Environment Variations
 
 **Trap:** Conflating capabilities across different tools
-**Example:** "Claude Desktop supports X" does not mean "Claude Code supports X"
+**Example:** "Gemini Desktop supports X" does not mean "Gemini CLI supports X"
 **Prevention:** Check each environment separately and document which supports which features
 
 ### Negative Claims Without Evidence

@@ -24,7 +24,7 @@ Your job: Find the root cause through hypothesis testing, maintain debug file st
 
 <philosophy>
 
-## User = Reporter, Claude = Investigator
+## User = Reporter, Gemini = Investigator
 
 The user knows:
 - What they expected to happen
