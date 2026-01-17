@@ -206,11 +206,11 @@ function install(isGlobal) {
   copyWithPathReplacement(skillSrc, skillDest, pathPrefix);
   console.log(`  ${green}✓${reset} Installed get-shit-done`);
 
-  // Copy agents to ~/.claude/agents (subagents must be at root level)
+  // Copy agents to ~/.gemini/agents (subagents must be at root level)
   // Only delete gsd-*.md files to preserve user's custom agents
   const agentsSrc = path.join(src, 'agents');
   if (fs.existsSync(agentsSrc)) {
-    const agentsDest = path.join(claudeDir, 'agents');
+    const agentsDest = path.join(geminiDir, 'agents');
     fs.mkdirSync(agentsDest, { recursive: true });
 
     // Remove old GSD agents (gsd-*.md) before copying new ones
@@ -271,14 +271,14 @@ function install(isGlobal) {
   }
 
   // Configure statusline and hooks in settings.json
-  const settingsPath = path.join(claudeDir, 'settings.json');
+  const settingsPath = path.join(geminiDir, 'settings.json');
   const settings = readSettings(settingsPath);
   const statuslineCommand = isGlobal
-    ? 'node "$HOME/.claude/hooks/statusline.js"'
-    : 'node .claude/hooks/statusline.js';
+    ? 'node "$HOM./.gemini/hooks/statusline.js"'
+    : 'node .gemini/hooks/statusline.js';
   const updateCheckCommand = isGlobal
-    ? 'node "$HOME/.claude/hooks/gsd-check-update.js"'
-    : 'node .claude/hooks/gsd-check-update.js';
+    ? 'node "$HOM./.gemini/hooks/gsd-check-update.js"'
+    : 'node .gemini/hooks/gsd-check-update.js';
 
   // Configure SessionStart hook for update checking
   if (!settings.hooks) {

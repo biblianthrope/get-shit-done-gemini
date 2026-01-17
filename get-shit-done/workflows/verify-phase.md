@@ -19,8 +19,8 @@ Then verify each level against the actual codebase.
 
 <required_reading>
 **Load these references:**
-- ~/.claude/get-shit-done/references/verification-patterns.md (detection patterns)
-- ~/.claude/get-shit-done/templates/verification-report.md (output format)
+- ~/.gemini/get-shit-done/references/verification-patterns.md (detection patterns)
+- ~/.gemini/get-shit-done/templates/verification-report.md (output format)
 </required_reading>
 
 <process>

@@ -165,7 +165,7 @@ CLI command to backup database to local file or S3. Supports full and incrementa
 - --no-retry flag to fail fast
 - Partial backups are deleted on failure (no corrupt files)
 
-### Claude's Discretion
+### Gemini's Discretion
 - Exact progress bar implementation
 - Compression algorithm choice
 - Temp file handling
@@ -227,7 +227,7 @@ Organize existing photo library into structured folders. Handle duplicates and a
 - Preserve original filename as suffix for searchability
 - Handle name collisions with incrementing suffix
 
-### Claude's Discretion
+### Gemini's Discretion
 - Exact clustering algorithm
 - How to handle photos with no EXIF data
 - Folder emoji usage
@@ -279,7 +279,7 @@ The output should answer: "What does the researcher need to investigate? What ch
 
 - **Domain** — The scope anchor. Copied/derived from ROADMAP.md. Fixed boundary.
 - **Decisions** — Organized by areas discussed (NOT predefined categories). Section headers come from the actual discussion — "Layout style", "Flag design", "Grouping criteria", etc.
-- **Claude's Discretion** — Explicit acknowledgment of what Claude can decide during implementation.
+- **Gemini's Discretion** — Explicit acknowledgment of what Gemini can decide during implementation.
 - **Specifics** — Product references, examples, "like X but..." statements.
 - **Deferred** — Ideas captured but explicitly out of scope. Prevents scope creep while preserving good ideas.
 

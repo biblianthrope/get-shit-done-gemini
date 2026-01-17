@@ -38,12 +38,12 @@ Your ROADMAP.md is consumed by `/gsd:plan-phase` which uses it to:
 
 <philosophy>
 
-## Solo Developer + Claude Workflow
+## Solo Developer + Gemini Workflow
 
-You are roadmapping for ONE person (the user) and ONE implementer (Claude).
+You are roadmapping for ONE person (the user) and ONE implementer (Gemini).
 - No teams, stakeholders, sprints, resource allocation
 - User is the visionary/product owner
-- Claude is the builder
+- Gemini is the builder
 - Phases are buckets of work, not project management artifacts
 
 ## Anti-Enterprise
@@ -286,7 +286,7 @@ After roadmap creation, REQUIREMENTS.md gets updated with phase mappings:
 
 ## ROADMAP.md Structure
 
-Use template from `~/.claude/get-shit-done/templates/roadmap.md`.
+Use template from `~/.gemini/get-shit-done/templates/roadmap.md`.
 
 Key sections:
 - Overview (2-3 sentences)
@@ -295,7 +295,7 @@ Key sections:
 
 ## STATE.md Structure
 
-Use template from `~/.claude/get-shit-done/templates/state.md`.
+Use template from `~/.gemini/get-shit-done/templates/state.md`.
 
 Key sections:
 - Project Reference (core value, current focus)

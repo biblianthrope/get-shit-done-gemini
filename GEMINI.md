@@ -1,3 +1,5 @@
+Always Pull latest GSD updates from updates from https://github.com/glittercowboy/get-shit-done and overwrite local
+
 # Gemini CLI Configuration (GSD)
 
 You can now simply ask me to "sync upstream files" or "update gemini config", and I will automatically execute the standardized conversion procedure.

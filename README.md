@@ -218,7 +218,7 @@ Then `/gsd:new-milestone` starts the next version — same flow as `new-project`
 
 ### Context Engineering
 
-Claude Code is incredibly powerful *if* you give it the context it needs. Most people don't.
+Gemini CLI is incredibly powerful *if* you give it the context it needs. Most people don't.
 
 GSD handles it for you:
 
@@ -233,11 +233,11 @@ GSD handles it for you:
 | `SUMMARY.md` | What happened, what changed, committed to history |
 | `todos/` | Captured ideas and tasks for later work |
 
-Size limits based on where Claude's quality degrades. Stay under, get consistent excellence.
+Size limits based on where Gemini's quality degrades. Stay under, get consistent excellence.
 
 ### XML Prompt Formatting
 
-Every plan is structured XML optimized for Claude:
+Every plan is structured XML optimized for Gemini:
 
 ```xml
 <task type="auto">
@@ -282,7 +282,7 @@ lmn012o feat(08-02): create registration endpoint
 ```
 
 > [!NOTE]
-> **Benefits:** Git bisect finds exact failing task. Each task independently revertable. Clear history for Claude in future sessions. Better observability in AI-automated workflow.
+> **Benefits:** Git bisect finds exact failing task. Each task independently revertable. Clear history for Gemini in future sessions. Better observability in AI-automated workflow.
 
 Every commit is surgical, traceable, and meaningful.
 

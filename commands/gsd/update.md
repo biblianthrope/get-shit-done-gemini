@@ -106,15 +106,15 @@ STOP here if ahead.
 ────────────────────────────────────────────────────────────
 
 ⚠️  **Note:** The installer performs a clean install of GSD folders:
-- `~/.claude/commands/gsd/` will be wiped and replaced
-- `~/.claude/get-shit-done/` will be wiped and replaced
-- `~/.claude/agents/gsd-*` files will be replaced
+- `~/.gemini/commands/gsd/` will be wiped and replaced
+- `~/.gemini/get-shit-done/` will be wiped and replaced
+- `~/.gemini/agents/gsd-*` files will be replaced
 
 Your custom files in other locations are preserved:
-- Custom commands in `~/.claude/commands/your-stuff/` ✓
+- Custom commands in `~/.gemini/commands/your-stuff/` ✓
 - Custom agents not prefixed with `gsd-` ✓
 - Custom hooks ✓
-- Your CLAUDE.md files ✓
+- Your GEMINI.md files ✓
 
 If you've modified any GSD files directly, back them up first.
 ```
@@ -140,7 +140,7 @@ Capture output. If install fails, show error and STOP.
 Clear the update cache so statusline indicator disappears:
 
 ```bash
-rm -f ~/.claude/cache/gsd-update-check.json
+rm -f ~/.gemini/cache/gsd-update-check.json
 ```
 </step>
 
@@ -152,7 +152,7 @@ Format completion message (changelog was already shown in confirmation step):
 ║  GSD Updated: v1.5.10 → v1.5.15                           ║
 ╚═══════════════════════════════════════════════════════════╝
 
-⚠️  Restart Claude Code to pick up the new commands.
+⚠️  Restart Gemini CLI to pick up the new commands.
 
 [View full changelog](https://github.com/glittercowboy/get-shit-done/blob/main/CHANGELOG.md)
 ```

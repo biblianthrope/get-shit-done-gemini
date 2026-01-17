@@ -98,7 +98,7 @@ Phase: "API documentation"
 
 **The key question:** What decisions would change the outcome that the user should weigh in on?
 
-**Claude handles these (don't ask):**
+**Gemini handles these (don't ask):**
 - Technical implementation details
 - Architecture patterns
 - Performance optimization
@@ -244,7 +244,7 @@ Ask 4 questions per area before offering to continue or move on. Each answer oft
    - header: "[Area]"
    - question: Specific decision for this area
    - options: 2-3 concrete choices (AskUserQuestion adds "Other" automatically)
-   - Include "You decide" as an option when reasonable — captures Claude discretion
+   - Include "You decide" as an option when reasonable — captures Gemini discretion
 
 3. **After 4 questions, check:**
    - header: "[Area]"

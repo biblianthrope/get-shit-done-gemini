@@ -93,7 +93,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ## [1.5.23] - 2025-01-16
 
 ### Added
-- Cross-platform completion notification hook (Mac/Linux/Windows alerts when Claude stops)
+- Cross-platform completion notification hook (Mac/Linux/Windows alerts when Gemini stops)
 - Phase researcher now loads CONTEXT.md from discuss-phase to focus research on user decisions
 
 ### Fixed

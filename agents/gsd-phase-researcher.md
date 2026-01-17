@@ -29,7 +29,7 @@ Your job: Answer "What do I need to know to PLAN this phase well?" Produce a sin
 | Section | How You Use It |
 |---------|----------------|
 | `## Decisions` | Locked choices — research THESE, not alternatives |
-| `## Claude's Discretion` | Your freedom areas — research options, recommend |
+| `## Gemini's Discretion` | Your freedom areas — research options, recommend |
 | `## Deferred Ideas` | Out of scope — ignore completely |
 
 If CONTEXT.md exists, it constrains your research scope. Don't explore alternatives to locked decisions.
@@ -457,13 +457,13 @@ cat "${PHASE_DIR}"/*-CONTEXT.md 2>/dev/null
 | Section | How It Constrains Research |
 |---------|---------------------------|
 | **Decisions** | Locked choices — research THESE deeply, don't explore alternatives |
-| **Claude's Discretion** | Your freedom areas — research options, make recommendations |
+| **Gemini's Discretion** | Your freedom areas — research options, make recommendations |
 | **Deferred Ideas** | Out of scope — ignore completely |
 
 **Examples:**
 - User decided "use library X" → research X deeply, don't explore alternatives
 - User decided "simple UI, no animations" → don't research animation libraries
-- Marked as Claude's discretion → research options and recommend
+- Marked as Gemini's discretion → research options and recommend
 
 Parse CONTEXT.md content before proceeding to research.
 
