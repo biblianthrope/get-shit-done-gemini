@@ -197,9 +197,9 @@ After user runs `/gsd:plan-phase {Z} --gaps`:
 Spawn all plans in a wave with a single message containing multiple Task calls:
 
 ```
-Task(prompt="Execute plan at {plan_01_path}\n\nPlan: @{plan_01_path}\nProject state: @.planning/STATE.md", subagent_type="gsd-executor")
-Task(prompt="Execute plan at {plan_02_path}\n\nPlan: @{plan_02_path}\nProject state: @.planning/STATE.md", subagent_type="gsd-executor")
-Task(prompt="Execute plan at {plan_03_path}\n\nPlan: @{plan_03_path}\nProject state: @.planning/STATE.md", subagent_type="gsd-executor")
+Task(prompt="Execute plan at {plan_01_path}\\n\\nPlan: @{plan_01_path}\\nProject state: @.planning/STATE.md", subagent_type="gsd-executor")
+Task(prompt="Execute plan at {plan_02_path}\\n\\nPlan: @{plan_02_path}\\nProject state: @.planning/STATE.md", subagent_type="gsd-executor")
+Task(prompt="Execute plan at {plan_03_path}\\n\\nPlan: @{plan_03_path}\\nProject state: @.planning/STATE.md", subagent_type="gsd-executor")
 ```
 
 All three run in parallel. Task tool blocks until all complete.

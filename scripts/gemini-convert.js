@@ -120,11 +120,11 @@ function generateTomlConfigs() {
              }
           }
           
-          // Escape quotes for TOML
-          const safeDescription = description.replace(/"/g, '\\"');
+          // Escape backslashes first, then quotes for TOML
+          const safeDescription = description.replace(/\\/g, '\\\\').replace(/"/g, '\\"');
           
-          // Escape triple quotes in body to avoid breaking the TOML multiline string
-          const safeBody = body.replace(/"""/g, '\\"\\\"\\"');
+          // Escape backslashes first, then triple quotes in body to avoid breaking the TOML multiline string
+          const safeBody = body.replace(/\\/g, '\\\\').replace(/"""/g, '\\"\\\"\\"');
           
           const tomlContent = `description = "${safeDescription}"\n\nprompt = """
 ${safeBody}
