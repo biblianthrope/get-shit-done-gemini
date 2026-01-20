@@ -107,7 +107,7 @@ For: Choosing between options, new external integration.
 
 5. **Cross-verify:** Any WebSearch finding → confirm with Context7/official docs.
 
-6. **Create DISCOVERY.md** using ~/.claude/get-shit-done/templates/discovery.md structure:
+6. **Create DISCOVERY.md** using ~/.gemini/get-shit-done/templates/discovery.md structure:
 
    - Summary with recommendation
    - Key findings per option

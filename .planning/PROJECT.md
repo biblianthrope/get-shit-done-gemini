@@ -36,7 +36,7 @@ Same guarantees, 50-70% fewer tokens for simple tasks.
 - `--plan-only` flag — MVP is always execute
 - `--after N` flag — always inserts after current phase
 - `--standalone` flag — requires active project, no exceptions
-- Node.js helper scripts — Claude handles decimal parsing inline
+- Node.js helper scripts — Gemini handles decimal parsing inline
 - Git status warnings — commits only its own files anyway
 - Planner modifications — planner unchanged, orchestrator skips agents
 - gsd-verifier — verification skipped by design

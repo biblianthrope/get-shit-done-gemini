@@ -25,14 +25,14 @@ The implementation uses existing GSD components with no new libraries.
 |-----------|---------|---------|--------------|
 | gsd-planner | existing | Creates PLAN.md | Already has quick mode support documented in design docs |
 | gsd-executor | existing | Executes tasks, creates SUMMARY.md | Unchanged from full mode |
-| Task tool | Claude Code native | Spawns subagents | Standard GSD orchestration pattern |
+| Task tool | Gemini CLI native | Spawns subagents | Standard GSD orchestration pattern |
 
 ### Supporting
 | Component | Version | Purpose | When to Use |
 |-----------|---------|---------|-------------|
-| AskUserQuestion | Claude Code native | Interactive description prompt | Initial task description gathering |
-| Edit tool | Claude Code native | STATE.md updates | Inserting rows in Quick Tasks table |
-| Bash tool | Claude Code native | Directory creation, git commits | File system and git operations |
+| AskUserQuestion | Gemini CLI native | Interactive description prompt | Initial task description gathering |
+| Edit tool | Gemini CLI native | STATE.md updates | Inserting rows in Quick Tasks table |
+| Bash tool | Gemini CLI native | Directory creation, git commits | File system and git operations |
 
 ### Not Needed
 | Instead of | Skip | Reason |
@@ -293,7 +293,7 @@ docs(quick-{NNN}): {description}
 
 Quick task completed.
 
-Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>
+Co-Authored-By: Gemini Opus 4.5 <noreply@anthropic.com>
 EOF
 )"
 ```

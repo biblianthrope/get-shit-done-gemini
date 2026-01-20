@@ -14,7 +14,7 @@ Enables seamless session continuity for fully autonomous workflows.
 </purpose>
 
 <required_reading>
-@~/.claude/get-shit-done/references/continuation-format.md
+@~/.gemini/get-shit-done/references/continuation-format.md
 </required_reading>
 
 <process>
@@ -221,7 +221,7 @@ Based on user selection, route to appropriate workflow:
 
   `/gsd:execute-phase {phase}`
 
-  <sub>`/clear` first → fresh context window</sub>
+  `/clear` first → fresh context window
 
   ---
   ```
@@ -235,7 +235,7 @@ Based on user selection, route to appropriate workflow:
 
   `/gsd:plan-phase [phase-number]`
 
-  <sub>`/clear` first → fresh context window</sub>
+  `/clear` first → fresh context window
 
   ---
 

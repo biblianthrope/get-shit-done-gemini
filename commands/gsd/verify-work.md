@@ -92,7 +92,7 @@ UAT complete ✓
 
 /gsd:discuss-phase {Z+1} — gather context and clarify approach
 
-<sub>/clear first → fresh context window</sub>
+/clear first → fresh context window
 
 ───────────────────────────────────────────────────────────────
 
@@ -123,7 +123,7 @@ Final phase verified ✓
 
 /gsd:audit-milestone
 
-<sub>/clear first → fresh context window</sub>
+/clear first → fresh context window
 
 ───────────────────────────────────────────────────────────────
 
@@ -158,7 +158,7 @@ Fix plans verified ✓
 
 /gsd:execute-phase {Z} --gaps-only
 
-<sub>/clear first → fresh context window</sub>
+/clear first → fresh context window
 
 ───────────────────────────────────────────────────────────────
 

@@ -1,18 +1,6 @@
----
-name: gsd:quick
-description: Execute a quick task with GSD guarantees (atomic commits, state tracking) but skip optional agents
-argument-hint: ""
-allowed-tools:
-  - Read
-  - Write
-  - Edit
-  - Glob
-  - Grep
-  - Bash
-  - Task
-  - AskUserQuestion
----
+description = "Execute a quick task with GSD guarantees (atomic commits, state tracking) but skip optional agents"
 
+prompt = """
 <objective>
 Execute small, ad-hoc tasks with GSD guarantees (atomic commits, STATE.md tracking) while skipping optional agents (research, plan-checker, verifier).
 
@@ -284,3 +272,4 @@ Ready for next task: /gsd:quick
 - [ ] STATE.md updated with quick task row
 - [ ] Artifacts committed
 </success_criteria>
+"""

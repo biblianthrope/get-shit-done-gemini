@@ -48,7 +48,7 @@
 | `--plan-only` flag | MVP always executes |
 | `--after N` flag | Always uses current phase |
 | `--standalone` flag | Requires active project for state integrity |
-| Node.js helper scripts | Claude handles decimal parsing inline |
+| Node.js helper scripts | Gemini handles decimal parsing inline |
 | Git status warnings | Commits only its own files |
 | Planner modifications | Orchestrator skips agents, planner unchanged |
 | gsd-verifier | Verification skipped by design |

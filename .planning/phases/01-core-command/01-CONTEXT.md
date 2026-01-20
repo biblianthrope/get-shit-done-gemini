@@ -40,7 +40,7 @@ Complete `/gsd:quick` command that executes small tasks with GSD guarantees (ato
 - Update STATE.md with "Quick Tasks Completed" table
 - Table includes: number, description, date, commit hash, link to /quick/ dir
 
-### Claude's Discretion
+### Gemini's Discretion
 - Exact PLAN.md format for quick tasks (simplified vs full)
 - Slug generation from task description
 - Error message wording

@@ -173,7 +173,7 @@ Summary: .planning/phases/{phase-dir}/{phase}-{plan}-SUMMARY.md
 
 `/gsd:execute-plan .planning/phases/{phase-dir}/{phase}-{next-plan}-PLAN.md`
 
-<sub>`/clear` first → fresh context window</sub>
+`/clear` first → fresh context window
 
 ---
 ```
@@ -206,7 +206,7 @@ All {Y} plans finished.
 
 `/gsd:plan-phase {Z+1}`
 
-<sub>`/clear` first → fresh context window</sub>
+`/clear` first → fresh context window
 
 ---
 ```
@@ -228,7 +228,7 @@ All {N} phases finished.
 
 `/gsd:complete-milestone`
 
-<sub>`/clear` first → fresh context window</sub>
+`/clear` first → fresh context window
 
 ---
 ```

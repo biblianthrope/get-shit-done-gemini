@@ -352,6 +352,20 @@ function install(isGlobal) {
       failures.push('CHANGELOG.md');
     }
   }
+    }
+  }
+
+  // Copy CHANGELOG-gemini.md
+  const changelogGeminiSrc = path.join(src, 'CHANGELOG-gemini.md');
+  const changelogGeminiDest = path.join(geminiDir, 'get-shit-done', 'CHANGELOG-gemini.md');
+  if (fs.existsSync(changelogGeminiSrc)) {
+    fs.copyFileSync(changelogGeminiSrc, changelogGeminiDest);
+    if (verifyFileInstalled(changelogGeminiDest, 'CHANGELOG-gemini.md')) {
+      console.log(`  ${green}✓${reset} Installed CHANGELOG-gemini.md`);
+    } else {
+      failures.push('CHANGELOG-gemini.md');
+    }
+  }
 
   // Write VERSION file for whats-new command
   const versionDest = path.join(geminiDir, 'get-shit-done', 'VERSION');

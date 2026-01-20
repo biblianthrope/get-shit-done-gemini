@@ -172,7 +172,7 @@ Project state updated: .planning/STATE.md
 
 `/gsd:plan-phase {N}`
 
-<sub>`/clear` first → fresh context window</sub>
+`/clear` first → fresh context window
 
 ---
 

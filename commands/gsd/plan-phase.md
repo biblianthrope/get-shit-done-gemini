@@ -447,7 +447,7 @@ Verification: {Passed | Passed with override | Skipped}
 
 /gsd:execute-phase {X}
 
-<sub>/clear first → fresh context window</sub>
+/clear first → fresh context window
 
 ───────────────────────────────────────────────────────────────
 

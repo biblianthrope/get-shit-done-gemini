@@ -141,7 +141,7 @@ Goal verified ✓
 
 /gsd:discuss-phase {Z+1} — gather context and clarify approach
 
-<sub>/clear first → fresh context window</sub>
+/clear first → fresh context window
 
 ───────────────────────────────────────────────────────────────
 
@@ -172,7 +172,7 @@ All phase goals verified ✓
 
 /gsd:audit-milestone
 
-<sub>/clear first → fresh context window</sub>
+/clear first → fresh context window
 
 ───────────────────────────────────────────────────────────────
 
@@ -207,7 +207,7 @@ Report: .planning/phases/{phase_dir}/{phase}-VERIFICATION.md
 
 /gsd:plan-phase {Z} --gaps
 
-<sub>/clear first → fresh context window</sub>
+/clear first → fresh context window
 
 ───────────────────────────────────────────────────────────────
 

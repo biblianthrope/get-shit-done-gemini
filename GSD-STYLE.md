@@ -328,7 +328,7 @@ Orchestrators @-reference ui-brand.md for stage banners, checkpoint boxes, statu
 
 `{copy-paste command}`
 
-<sub>`/clear` first → fresh context window</sub>
+`/clear` first → fresh context window
 
 ───────────────────────────────────────────────────────────────
 
@@ -439,7 +439,7 @@ docs(quick-NNN): description
 
 Quick task completed.
 
-Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>
+Co-Authored-By: Gemini Opus 4.5 <noreply@anthropic.com>
 ```
 
 ---

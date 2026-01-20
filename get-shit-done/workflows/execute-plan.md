@@ -6,7 +6,7 @@ Execute a phase prompt (PLAN.md) and create the outcome summary (SUMMARY.md).
 Read STATE.md before any operation to load project context.
 Read config.json for planning behavior settings.
 
-@~/.claude/get-shit-done/references/git-integration.md
+@~/.gemini/get-shit-done/references/git-integration.md
 </required_reading>
 
 <process>
@@ -1728,7 +1728,7 @@ Summary: .planning/phases/{phase-dir}/{phase}-{plan}-SUMMARY.md
 
 `/gsd:execute-phase {phase}`
 
-<sub>`/clear` first → fresh context window</sub>
+`/clear` first → fresh context window
 
 ---
 
@@ -1789,7 +1789,7 @@ All {Y} plans finished.
 
 `/gsd:plan-phase {Z+1}`
 
-<sub>`/clear` first → fresh context window</sub>
+`/clear` first → fresh context window
 
 ---
 
@@ -1827,7 +1827,7 @@ All {Y} plans finished.
 
 `/gsd:complete-milestone`
 
-<sub>`/clear` first → fresh context window</sub>
+`/clear` first → fresh context window
 
 ---
 

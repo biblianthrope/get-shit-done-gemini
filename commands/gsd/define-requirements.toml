@@ -94,7 +94,7 @@ Requirements defined:
 
 `/gsd:create-roadmap`
 
-<sub>`/clear` first → fresh context window</sub>
+`/clear` first → fresh context window
 
 ---
 ```

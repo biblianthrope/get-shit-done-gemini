@@ -283,7 +283,7 @@ Key findings:
 ---
 ## > Next Up
 **Define requirements** - `/gsd:define-requirements`
-<sub>`/clear` first</sub>
+`/clear` first
 ---
 ```
 

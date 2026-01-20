@@ -26,10 +26,10 @@ This is the brownfield equivalent of new-project. The project exists, PROJECT.md
 </objective>
 
 <execution_context>
-@~/.claude/get-shit-done/references/questioning.md
-@~/.claude/get-shit-done/references/ui-brand.md
-@~/.claude/get-shit-done/templates/project.md
-@~/.claude/get-shit-done/templates/requirements.md
+@~/.gemini/get-shit-done/references/questioning.md
+@~/.gemini/get-shit-done/references/ui-brand.md
+@~/.gemini/get-shit-done/templates/project.md
+@~/.gemini/get-shit-done/templates/requirements.md
 </execution_context>
 
 <context>
@@ -670,7 +670,7 @@ Present completion with next steps:
 
 `/gsd:discuss-phase [N]` — gather context and clarify approach
 
-<sub>`/clear` first → fresh context window</sub>
+`/clear` first → fresh context window
 
 ---
 
