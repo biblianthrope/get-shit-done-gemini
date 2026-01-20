@@ -17,7 +17,9 @@ const replacements = [
   { from: new RegExp('<solo_developer_claude>', 'g'), to: '<solo_developer_gemini>' },
   { from: new RegExp('</solo_developer_claude>', 'g'), to: '</solo_developer_gemini>' },
   { from: new RegExp('<claude_automates>', 'g'), to: '<gemini_automates>' },
-  { from: new RegExp('</claude_automates>', 'g'), to: '</gemini_automates>' }
+  { from: new RegExp('</claude_automates>', 'g'), to: '</gemini_automates>' },
+  { from: new RegExp('<sub>', 'g'), to: '' },
+  { from: new RegExp('</sub>', 'g'), to: '' }
 ];
 
 const ignoreDirs = ['.git', 'node_modules', '.gemini']; 
@@ -175,6 +177,32 @@ function processFile(filePath) {
   "  // Copy CHANGELOG.md";
   
         content = content.replace('// Copy CHANGELOG.md', rulesInstallBlock);
+      }
+      
+      if (!content.includes("Installed CHANGELOG-gemini.md")) {
+         const changelogGeminiBlock = 
+  "    }\n" +
+  "  }\n\n" +
+  "  // Copy CHANGELOG-gemini.md\n" +
+  "  const changelogGeminiSrc = path.join(src, 'CHANGELOG-gemini.md');\n" +
+  "  const changelogGeminiDest = path.join(geminiDir, 'get-shit-done', 'CHANGELOG-gemini.md');\n" +
+  "  if (fs.existsSync(changelogGeminiSrc)) {\n" +
+  "    fs.copyFileSync(changelogGeminiSrc, changelogGeminiDest);\n" +
+  "    if (verifyFileInstalled(changelogGeminiDest, 'CHANGELOG-gemini.md')) {\n" +
+  "      console.log(`  ${green}✓${reset} Installed CHANGELOG-gemini.md`);\n" +
+  "    } else {\n" +
+  "      failures.push('CHANGELOG-gemini.md');\n" +
+  "    }\n" +
+  "  }";
+         
+         // Insert after the CHANGELOG.md block
+         // We look for the closing brace of the CHANGELOG.md block
+         // The pattern in bin/install.js ends with failures.push('CHANGELOG.md'); } }
+         
+         // A more robust anchor: "failures.push('CHANGELOG.md');" 
+         // followed by closing braces.
+         const searchStr = "failures.push('CHANGELOG.md');\n    }\n  }";
+         content = content.replace(searchStr, searchStr + "\n" + changelogGeminiBlock);
       }
     }
 
