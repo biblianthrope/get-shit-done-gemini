@@ -1,83 +1,173 @@
 <div align="center">
 
-# GET SHIT DONE (Gemini Edition) - Seems to be working quite well for me, your results may vary! /Cars10
+# GET SHIT DONE
 
-**A light-weight and powerful meta-prompting, context engineering and spec-driven development system for Gemini CLI.**
+**A light-weight and powerful meta-prompting, context engineering and spec-driven development system for Claude Code and OpenCode.**
 
-**Solves context rot — the quality degradation that happens as Gemini fills its context window.**
+**Solves context rot — the quality degradation that happens as Claude fills its context window.**
 
-[![npm version](https://img.shields.io/npm/v/get-shit-done-gemini?style=for-the-badge&logo=npm&logoColor=white&color=CB3837)](https://www.npmjs.com/package/get-shit-done-gemini)
+[![npm version](https://img.shields.io/npm/v/get-shit-done-cc?style=for-the-badge&logo=npm&logoColor=white&color=CB3837)](https://www.npmjs.com/package/get-shit-done-cc)
+[![npm downloads](https://img.shields.io/npm/dm/get-shit-done-cc?style=for-the-badge&logo=npm&logoColor=white&color=CB3837)](https://www.npmjs.com/package/get-shit-done-cc)
+[![Discord](https://img.shields.io/badge/Discord-Join%20Server-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/5JJgD5svVS)
+[![GitHub stars](https://img.shields.io/github/stars/glittercowboy/get-shit-done?style=for-the-badge&logo=github&color=181717)](https://github.com/glittercowboy/get-shit-done)
 [![License](https://img.shields.io/badge/license-MIT-blue?style=for-the-badge)](LICENSE)
 
 <br>
 
 ```bash
-npx github:Cars-10/get-shit-done-gemini
+npx get-shit-done-cc
 ```
 
 **Works on Mac, Windows, and Linux.**
 
 <br>
 
-![GSD Install](assets/gsd-install.png)
+![GSD Install](assets/terminal.svg)
 
 <br>
 
 *"If you know clearly what you want, this WILL build it for you. No bs."*
 
-*"By far the most powerful addition to my Gemini CLI. Nothing over-engineered. Literally just gets shit done."*
+*"I've done SpecKit, OpenSpec and Taskmaster — this has produced the best results for me."*
+
+*"By far the most powerful addition to my Claude Code. Nothing over-engineered. Literally just gets shit done."*
 
 <br>
 
-**Adapted for Gemini CLI from the original GSD system by TÂCHES.**
+**Trusted by engineers at Amazon, Google, Shopify, and Webflow.**
 
-[Why This Fork?](#why-this-fork) · [How It Works](#how-it-works) · [Commands](#commands) · [Credits](#credits)
+[Why I Built This](#why-i-built-this) · [How It Works](#how-it-works) · [Commands](#commands) · [Why It Works](#why-it-works)
 
 </div>
 
 ---
 
-## Why This Fork?
+## Why I Built This
 
-This project is a dedicated fork of the excellent [Get Shit Done](https://github.com/glittercowboy/get-shit-done) system, originally built for Gemini CLI.
+I'm a solo developer. I don't write code — Claude Code does.
 
-While the original system revolutionized the workflow for Gemini users, this fork brings the same powerful context engineering and spec-driven development principles to the **Gemini CLI**. We've adapted the prompts, templates, and installation logic to ensure seamless integration with Google's Gemini environment.
+Other spec-driven development tools exist; BMAD, Speckit... But they all seem to make things way more complicated than they need to be (sprint ceremonies, story points, stakeholder syncs, retrospectives, Jira workflows) or lack real big picture understanding of what you're building. I'm not a 50-person software company. I don't want to play enterprise theater. I'm just a creative person trying to build great things that work.
 
-The philosophy remains the same: **No enterprise roleplay bullshit. Just an incredibly effective system for building cool stuff consistently.**
+So I built GSD. The complexity is in the system, not in your workflow. Behind the scenes: context engineering, XML prompt formatting, subagent orchestration, state management. What you see: a few commands that just work.
+
+The system gives Claude everything it needs to do the work *and* verify it. I trust the workflow. It just does a good job.
+
+That's what this is. No enterprise roleplay bullshit. Just an incredibly effective system for building cool stuff consistently using Claude Code.
+
+— **TÂCHES**
 
 ---
 
-## What It Does
-
 Vibecoding has a bad reputation. You describe what you want, AI generates code, and you get inconsistent garbage that falls apart at scale.
 
-GSD fixes that. It's the context engineering layer that makes Gemini CLI reliable. Describe your idea, let the system extract everything it needs to know, and let Gemini CLI get to work.
+GSD fixes that. It's the context engineering layer that makes Claude Code reliable. Describe your idea, let the system extract everything it needs to know, and let Claude Code get to work.
 
-### The Problem it Solves
-- **Context Rot:** Prevents Gemini from losing the plot as the conversation grows.
-- **Specification:** Forces clarity before code is written.
-- **Verification:** Built-in checks to ensure what was built is what was asked for.
+---
+
+## Who This Is For
+
+People who want to describe what they want and have it built correctly — without pretending they're running a 50-person engineering org.
 
 ---
 
 ## Getting Started
 
 ```bash
-npx github:Cars-10/get-shit-done-gemini
+npx get-shit-done-cc
 ```
 
-That's it. Verify with `/gsd:help` inside your Gemini CLI interface.
+The installer prompts you to choose:
+1. **Runtime** — Claude Code, OpenCode, or both
+2. **Location** — Global (all projects) or local (current project only)
+
+Verify with `/gsd:help` inside your Claude Code or OpenCode interface.
+
+### Staying Updated
+
+GSD evolves fast. Update periodically:
+
+```bash
+npx get-shit-done-cc@latest
+```
+
+<details>
+<summary><strong>Non-interactive Install (Docker, CI, Scripts)</strong></summary>
+
+```bash
+# Claude Code
+npx get-shit-done-cc --claude --global   # Install to ~/.claude/
+npx get-shit-done-cc --claude --local    # Install to ./.claude/
+
+# OpenCode (open source, free models)
+npx get-shit-done-cc --opencode --global # Install to ~/.opencode/
+
+# Both runtimes
+npx get-shit-done-cc --both --global     # Install to both directories
+```
+
+Use `--global` (`-g`) or `--local` (`-l`) to skip the location prompt.
+Use `--claude`, `--opencode`, or `--both` to skip the runtime prompt.
+
+</details>
+
+<details>
+<summary><strong>Development Installation</strong></summary>
+
+Clone the repository and run the installer locally:
+
+```bash
+git clone https://github.com/glittercowboy/get-shit-done.git
+cd get-shit-done
+node bin/install.js --claude --local
+```
+
+Installs to `./.claude/` for testing modifications before contributing.
+
+</details>
 
 ### Recommended: Skip Permissions Mode
 
-GSD is designed for frictionless automation. Run Gemini CLI with:
+GSD is designed for frictionless automation. Run Claude Code with:
 
 ```bash
-gemini --dangerously-skip-permissions
+claude --dangerously-skip-permissions
 ```
 
 > [!TIP]
 > This is how GSD is intended to be used — stopping to approve `date` and `git commit` 50 times defeats the purpose.
+
+<details>
+<summary><strong>Alternative: Granular Permissions</strong></summary>
+
+If you prefer not to use that flag, add this to your project's `.claude/settings.json`:
+
+```json
+{
+  "permissions": {
+    "allow": [
+      "Bash(date:*)",
+      "Bash(echo:*)",
+      "Bash(cat:*)",
+      "Bash(ls:*)",
+      "Bash(mkdir:*)",
+      "Bash(wc:*)",
+      "Bash(head:*)",
+      "Bash(tail:*)",
+      "Bash(sort:*)",
+      "Bash(grep:*)",
+      "Bash(tr:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git status:*)",
+      "Bash(git log:*)",
+      "Bash(git diff:*)",
+      "Bash(git tag:*)"
+    ]
+  }
+}
+```
+
+</details>
 
 ---
 
@@ -241,53 +331,9 @@ Use for: bug fixes, small features, config changes, one-off tasks.
 
 ## Why It Works
 
-### Codebase Intelligence
-
-GSD learns your codebase patterns automatically. As Gemini writes code, a PostToolUse hook indexes exports and imports, detects naming conventions, and builds a semantic understanding of your codebase.
-
-**How it works:**
-
-1. **Automatic learning** — Every time Gemini writes or edits a JS/TS file, the hook extracts exports/imports and updates `.planning/intel/index.json`
-2. **Convention detection** — Analyzes exports for naming patterns (camelCase, PascalCase, etc.), identifies directory purposes, detects file suffixes
-3. **Graph database** — Stores entity relationships in SQLite for dependency analysis
-4. **Context injection** — At session start, injects a summary into Gemini's context so it knows your codebase structure and conventions
-
-**For existing codebases:**
-
-```
-/gsd:analyze-codebase
-```
-
-Performs a bulk scan of your codebase to bootstrap the intelligence layer. Works standalone — no `/gsd:new-project` required. After initial analysis, hooks continue incremental learning.
-
-**Query the graph:**
-
-```
-/gsd:query-intel dependents src/lib/db.ts   # What depends on this file?
-/gsd:query-intel hotspots                    # Most-depended-on files
-```
-
-**Files created:**
-
-| File | Purpose |
-|------|---------|
-| `.planning/intel/index.json` | File exports and imports index |
-| `.planning/intel/conventions.json` | Detected patterns (naming, directories, suffixes) |
-| `.planning/intel/graph.db` | SQLite database with entity relationships |
-| `.planning/intel/summary.md` | Concise context for session injection |
-
-**Benefits:**
-
-- Gemini follows your naming conventions automatically
-- New files go in the right directories
-- Consistency maintained across sessions
-- Query blast radius before refactoring
-- Identify high-impact hotspot files
-- No manual documentation of patterns needed
-
 ### Context Engineering
 
-Gemini CLI is incredibly powerful *if* you give it the context it needs. Most people don't.
+Claude Code is incredibly powerful *if* you give it the context it needs. Most people don't.
 
 GSD handles it for you:
 
@@ -302,11 +348,11 @@ GSD handles it for you:
 | `SUMMARY.md` | What happened, what changed, committed to history |
 | `todos/` | Captured ideas and tasks for later work |
 
-Size limits based on where Gemini's quality degrades. Stay under, get consistent excellence.
+Size limits based on where Claude's quality degrades. Stay under, get consistent excellence.
 
 ### XML Prompt Formatting
 
-Every plan is structured XML optimized for Gemini:
+Every plan is structured XML optimized for Claude:
 
 ```xml
 <task type="auto">
@@ -351,7 +397,7 @@ lmn012o feat(08-02): create registration endpoint
 ```
 
 > [!NOTE]
-> **Benefits:** Git bisect finds exact failing task. Each task independently revertable. Clear history for Gemini in future sessions. Better observability in AI-automated workflow.
+> **Benefits:** Git bisect finds exact failing task. Each task independently revertable. Clear history for Claude in future sessions. Better observability in AI-automated workflow.
 
 Every commit is surgical, traceable, and meaningful.
 
@@ -387,16 +433,14 @@ You're never locked in. The system adapts.
 |---------|--------------|
 | `/gsd:progress` | Where am I? What's next? |
 | `/gsd:help` | Show all commands and usage guide |
-| `/gsd:whats-new` | See what changed since your installed version |
 | `/gsd:update` | Update GSD with changelog preview |
+| `/gsd:join-discord` | Join the GSD Discord community |
 
 ### Brownfield
 
 | Command | What it does |
 |---------|--------------|
 | `/gsd:map-codebase` | Analyze existing codebase before new-project |
-| `/gsd:analyze-codebase` | Bootstrap codebase intelligence for existing projects |
-| `/gsd:query-intel <type>` | Query dependency graph (dependents, hotspots) |
 
 ### Phase Management
 
@@ -405,7 +449,7 @@ You're never locked in. The system adapts.
 | `/gsd:add-phase` | Append phase to roadmap |
 | `/gsd:insert-phase [N]` | Insert urgent work between phases |
 | `/gsd:remove-phase [N]` | Remove future phase, renumber |
-| `/gsd:list-phase-assumptions [N]` | See Gemini's intended approach before planning |
+| `/gsd:list-phase-assumptions [N]` | See Claude's intended approach before planning |
 | `/gsd:plan-milestone-gaps` | Create phases to close gaps from audit |
 
 ### Session
@@ -443,13 +487,13 @@ GSD stores project settings in `.planning/config.json`. Configure during `/gsd:n
 
 ### Model Profiles
 
-Control which Gemini model each agent uses. Balance quality vs token spend.
+Control which Claude model each agent uses. Balance quality vs token spend.
 
 | Profile | Planning | Execution | Verification |
 |---------|----------|-----------|--------------|
-| `quality` | Pro | Pro | Flash |
-| `balanced` (default) | Pro | Flash | Flash |
-| `budget` | Flash | Flash | Flash |
+| `quality` | Opus | Opus | Sonnet |
+| `balanced` (default) | Opus | Sonnet | Sonnet |
+| `budget` | Sonnet | Sonnet | Haiku |
 
 Switch profiles:
 ```
@@ -481,14 +525,65 @@ Use `/gsd:settings` to toggle these, or override per-invocation:
 
 ---
 
-## Credits & Standing on Shoulders of Giants
+## Troubleshooting
 
-This project serves as a bridge for Gemini users to access the incredible meta-prompting system designed by **TÂCHES** (glittercowboy).
+**Commands not found after install?**
+- Restart Claude Code to reload slash commands
+- Verify files exist in `~/.claude/commands/gsd/` (global) or `./.claude/commands/gsd/` (local)
 
-**Original Project:** [Get Shit Done](https://github.com/glittercowboy/get-shit-done)
-**Original Author:** TÂCHES
+**Commands not working as expected?**
+- Run `/gsd:help` to verify installation
+- Re-run `npx get-shit-done-cc` to reinstall
 
-We acknowledge and deeply appreciate the original work that made this adaptation possible. The core philosophy, structure, and brilliance of GSD belong to its original creator. This fork merely translates that brilliance into the language of Gemini.
+**Updating to the latest version?**
+```bash
+npx get-shit-done-cc@latest
+```
+
+**Using Docker or containerized environments?**
+
+If file reads fail with tilde paths (`~/.claude/...`), set `CLAUDE_CONFIG_DIR` before installing:
+```bash
+CLAUDE_CONFIG_DIR=/home/youruser/.claude npx get-shit-done-cc --global
+```
+This ensures absolute paths are used instead of `~` which may not expand correctly in containers.
+
+### Uninstalling
+
+To remove GSD completely:
+
+```bash
+# Global installs
+npx get-shit-done-cc --claude --global --uninstall
+npx get-shit-done-cc --opencode --global --uninstall
+
+# Local installs (current project)
+npx get-shit-done-cc --claude --local --uninstall
+npx get-shit-done-cc --opencode --local --uninstall
+```
+
+This removes all GSD commands, agents, hooks, and settings while preserving your other configurations.
+
+---
+
+## Community Ports
+
+| Project | Platform | Description |
+|---------|----------|-------------|
+| [gsd-opencode](https://github.com/rokicool/gsd-opencode) | OpenCode | GSD adapted for OpenCode CLI |
+| [gsd-gemini](https://github.com/uberfuzzy/gsd-gemini) | Gemini CLI | GSD adapted for Google's Gemini CLI |
+
+---
+
+## Star History
+
+<a href="https://star-history.com/#glittercowboy/get-shit-done&Date">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=glittercowboy/get-shit-done&type=Date&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=glittercowboy/get-shit-done&type=Date" />
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=glittercowboy/get-shit-done&type=Date" />
+ </picture>
+</a>
 
 ---
 
@@ -500,6 +595,6 @@ MIT License. See [LICENSE](LICENSE) for details.
 
 <div align="center">
 
-**Gemini CLI is powerful. GSD makes it reliable.**
+**Claude Code is powerful. GSD makes it reliable.**
 
 </div>

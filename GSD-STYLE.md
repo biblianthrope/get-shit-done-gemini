@@ -1,15 +1,15 @@
 # GSD-STYLE.md
 
-> **Comprehensive reference.** Core rules auto-load from `.gemini/rules/`. This document provides deep explanations and examples for when you need the full picture.
+> **Comprehensive reference.** Core rules auto-load from `.claude/rules/`. This document provides deep explanations and examples for when you need the full picture.
 
-This document explains how GSD is written so future Gemini instances can contribute consistently.
+This document explains how GSD is written so future Claude instances can contribute consistently.
 
 ## Core Philosophy
 
-GSD is a **meta-prompting system** where every file is both implementation and specification. Files teach Gemini how to build software systematically. The system optimizes for:
+GSD is a **meta-prompting system** where every file is both implementation and specification. Files teach Claude how to build software systematically. The system optimizes for:
 
-- **Solo developer + Gemini workflow** (no enterprise patterns)
-- **Context engineering** (manage Gemini's context window deliberately)
+- **Solo developer + Claude workflow** (no enterprise patterns)
+- **Context engineering** (manage Claude's context window deliberately)
 - **Plans as prompts** (PLAN.md files are executable, not documents to transform)
 
 ---
@@ -119,7 +119,7 @@ Build authentication system
 ```
 
 **Task types:**
-- `type="auto"` — Gemini executes autonomously
+- `type="auto"` — Claude executes autonomously
 - `type="checkpoint:human-verify"` — User must verify
 - `type="checkpoint:decision"` — User must choose
 
@@ -164,7 +164,7 @@ Build authentication system
 
 **Static references** (always load):
 ```
-@~/.gemini/get-shit-done/workflows/execute-phase.md
+@~/.claude/get-shit-done/workflows/execute-phase.md
 @.planning/PROJECT.md
 ```
 
@@ -173,7 +173,7 @@ Build authentication system
 @.planning/DISCOVERY.md (if exists)
 ```
 
-**@-references are lazy loading signals.** They tell Gemini what to read, not pre-loaded content.
+**@-references are lazy loading signals.** They tell Claude what to read, not pre-loaded content.
 
 ---
 
@@ -328,7 +328,7 @@ Orchestrators @-reference ui-brand.md for stage banners, checkpoint boxes, statu
 
 `{copy-paste command}`
 
-`/clear` first → fresh context window
+<sub>`/clear` first → fresh context window</sub>
 
 ───────────────────────────────────────────────────────────────
 
@@ -439,7 +439,7 @@ docs(quick-NNN): description
 
 Quick task completed.
 
-Co-Authored-By: Gemini Opus 4.5 <noreply@anthropic.com>
+Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>
 ```
 
 ---
@@ -483,70 +483,6 @@ How to make tests pass
 
 ---
 
-## Codebase Intelligence
-
-GSD includes an automatic codebase learning system that indexes code and detects patterns.
-
-### Files
-
-| File | Purpose | Updated By |
-|------|---------|------------|
-| `.planning/intel/index.json` | File exports/imports index | PostToolUse hook |
-| `.planning/intel/conventions.json` | Detected naming/directory/suffix patterns | PostToolUse hook |
-| `.planning/intel/summary.md` | Concise context for injection | PostToolUse hook |
-
-### Index Schema
-
-```json
-{
-  "version": 1,
-  "updated": 1234567890,
-  "files": {
-    "/absolute/path/to/file.ts": {
-      "exports": ["functionA", "ClassB", "default"],
-      "imports": ["react", "./utils", "@org/pkg"],
-      "indexed": 1234567890
-    }
-  }
-}
-```
-
-### Convention Detection
-
-**Naming conventions** (requires 5+ exports, 70%+ match rate):
-- camelCase, PascalCase, snake_case, SCREAMING_SNAKE
-- 'default' is skipped (keyword, not naming indicator)
-
-**Directory purposes** (lookup table):
-- components, hooks, utils, lib, services, api, routes, types, models, tests, etc.
-
-**Suffix patterns** (requires 5+ files):
-- .test.*, .spec.*, .service.*, .controller.*, etc.
-
-### Hook Patterns
-
-**PostToolUse hook (intel-index.js):**
-- Triggers on Write/Edit of JS/TS files
-- Incremental update (single file per invocation)
-- Silent failure (never blocks Gemini)
-- Regenerates conventions.json and summary.md on every update
-
-**SessionStart hook (intel-session.js):**
-- Triggers on startup/resume
-- Reads index.json and conventions.json
-- Outputs `<codebase-intelligence>` wrapped summary
-- Silent failure if intel files missing
-
-### Commands
-
-**`/gsd:analyze-codebase`** — Bulk scan for brownfield projects:
-- Creates .planning/intel/ directory
-- Scans all JS/TS files (excludes node_modules, dist, build, .git, vendor, coverage)
-- Uses same extraction logic as PostToolUse hook
-- Works standalone (no /gsd:new-project required)
-
----
-
 ## Summary: Core Meta-Patterns
 
 1. **XML for semantic structure, Markdown for content**
@@ -554,7 +490,7 @@ GSD includes an automatic codebase learning system that indexes code and detects
 3. **Commands delegate to workflows**
 4. **Progressive disclosure hierarchy**
 5. **Imperative, brief, technical** — no filler, no sycophancy
-6. **Solo developer + Gemini** — no enterprise patterns
+6. **Solo developer + Claude** — no enterprise patterns
 7. **Context size as quality constraint** — split aggressively
 8. **Temporal language banned** — current state only
 9. **Plans ARE prompts** — executable, not documents

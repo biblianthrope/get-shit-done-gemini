@@ -6,7 +6,7 @@ Execute a phase prompt (PLAN.md) and create the outcome summary (SUMMARY.md).
 Read STATE.md before any operation to load project context.
 Read config.json for planning behavior settings.
 
-@~/.gemini/get-shit-done/references/git-integration.md
+@~/.claude/get-shit-done/references/git-integration.md
 </required_reading>
 
 <process>
@@ -216,19 +216,7 @@ Tasks 2-5: Main context (need decision from checkpoint 1)
 No segmentation benefit - execute entirely in main
 ```
 
-**4. Why this works:**
-
-**Segmentation benefits:**
-
-- Fresh context for each autonomous segment (0% start every time)
-- Main context only for checkpoints (~10-20% total)
-- Can handle 10+ task plans if properly segmented
-- Quality impossible to degrade in autonomous segments
-
-**When segmentation provides no benefit:**
-
-- Checkpoint is decision/human-action and following tasks depend on outcome
-- Better to execute sequentially in main than break flow
+**4. Why segment:** Fresh context per subagent preserves peak quality. Main context stays lean (~15% usage).
 
 **5. Implementation:**
 
@@ -533,18 +521,7 @@ Committing...
 
 ````
 
-**Benefits of this pattern:**
-- Main context usage: ~20% (just orchestration + checkpoints)
-- Subagent 1: Fresh 0-30% (tasks 1-3)
-- Subagent 2: Fresh 0-30% (tasks 5-6)
-- Subagent 3: Fresh 0-20% (task 8)
-- All autonomous work: Peak quality
-- Can handle large plans with many tasks if properly segmented
-
-**When NOT to use segmentation:**
-- Plan has decision/human-action checkpoints that affect following tasks
-- Following tasks depend on checkpoint outcome
-- Better to execute in main sequentially in those cases
+**Benefit:** Each subagent starts fresh (~20-30% context), enabling larger plans without quality degradation.
 </step>
 
 <step name="load_prompt">
@@ -598,8 +575,7 @@ Execute each task in the prompt. **Deviations are normal** - handle them automat
    - Continue implementing, applying rules as needed
    - Run the verification
    - Confirm done criteria met
-   - **Update intel entities** for modified files (see `<update_intel_entity>` below)
-   - **Commit the task** (see `<task_commit>` below) - includes entity files in commit
+   - **Commit the task** (see `<task_commit>` below)
    - Track task completion and commit hash for Summary documentation
    - Continue to next task
 
@@ -928,148 +904,6 @@ None - plan executed exactly as written.
 
 </deviation_documentation>
 
-<update_intel_entity>
-
-## Update Codebase Intelligence Entity
-
-**Trigger:** After each task's `<done>` criteria met, BEFORE committing.
-
-This step documents your understanding of modified files. The knowledge base self-evolves as you work.
-
-**1. Get files from the just-completed task:**
-
-Check the task's `<files>` list. If no `<files>` attribute, use `git status --short` to identify modified files.
-
-**2. For each file, determine if significant:**
-
-**Skip these patterns (not worth indexing):**
-```bash
-# Build/generated
-node_modules/*, .next/*, dist/*, build/*, .git/*
-
-# Tests (their targets are more valuable)
-*.test.*, *.spec.*, __tests__/*, __mocks__/*
-
-# Config files (change rarely, low context value)
-package.json, package-lock.json, tsconfig.json, *.config.*, *.config.js, *.config.ts
-
-# Environment and locks
-.env*, *.lock, *.log, yarn.lock, pnpm-lock.yaml
-```
-
-If file matches skip pattern: continue to next file.
-
-**3. Derive entity path:**
-
-```bash
-# Convert file path to entity filename
-# src/lib/auth.ts → src-lib-auth.md
-# app/api/users/route.ts → app-api-users-route.md
-
-FILE_PATH="$1"
-ENTITY_NAME=$(echo "$FILE_PATH" | sed 's|^[./]*||' | tr '/' '-' | sed 's/\.[^.]*$//')
-ENTITY_PATH=".planning/intel/entities/${ENTITY_NAME}.md"
-```
-
-**4. Create intel directory if needed:**
-
-```bash
-mkdir -p .planning/intel/entities
-```
-
-**5. Check if entity exists:**
-
-```bash
-if [ -f "$ENTITY_PATH" ]; then
-  ACTION="update"
-else
-  ACTION="create"
-fi
-```
-
-**6. Create or update entity:**
-
-Use template from `~/.gemini/get-shit-done/templates/entity.md`.
-
-Fill fields based on what you just built:
-
-| Field | Source |
-|-------|--------|
-| `path` | Absolute path to file |
-| `type` | Infer: module, component, util, config, api, hook |
-| `updated` | Today's date (YYYY-MM-DD) |
-| `status` | active (unless you're deprecating) |
-| **Purpose** | What you understand this file does |
-| **Exports** | Extract from the code you just wrote |
-| **Dependencies** | `[[slugified-path]]` for internal, plain for external |
-| **Used By** | Add callers if you know them from this session |
-| **Notes** | Gotchas, patterns, warnings discovered |
-
-**If updating existing entity:**
-- Read current content first
-- Preserve Used By entries you didn't touch
-- Update sections that changed
-- Don't remove information unless it's wrong
-
-**7. Write entity file:**
-
-```bash
-# Write the entity content
-cat > "$ENTITY_PATH" << 'EOF'
----
-path: {path}
-type: {type}
-updated: {today}
-status: active
----
-
-# {filename}
-
-## Purpose
-
-{purpose}
-
-## Exports
-
-{exports}
-
-## Dependencies
-
-{dependencies}
-
-## Used By
-
-{used_by}
-
-## Notes
-
-{notes}
-EOF
-```
-
-**8. Verify entity was created/updated:**
-
-```bash
-head -10 "$ENTITY_PATH"
-```
-
-**9. Stage entity file:**
-
-Entity files are staged along with task code files in the task commit.
-
-```bash
-git add "$ENTITY_PATH"
-```
-
-**Error handling:**
-- If entity creation fails: Log warning, continue to task_commit
-- Entity update is NOT blocking - a failed entity shouldn't stop code from being committed
-- Log: `"Warning: Could not update entity for {file}: {reason}"`
-
-**Target size:** Keep entities concise (30-50 lines). Purpose and Exports are most valuable.
-
-</update_intel_entity>
-
 <tdd_plan_execution>
 ## TDD Plan Execution
 
@@ -1124,7 +958,7 @@ After TDD plan completion, ensure:
 - Standard plans: Multiple tasks, 1 commit per task, 2-4 commits total
 - TDD plans: Single feature, 2-3 commits for RED/GREEN/REFACTOR cycle
 
-See `~/.gemini/get-shit-done/references/tdd.md` for TDD plan structure.
+See `~/.claude/get-shit-done/references/tdd.md` for TDD plan structure.
 </tdd_plan_execution>
 
 <task_commit>
@@ -1211,19 +1045,12 @@ Store in array or list for SUMMARY generation:
 TASK_COMMITS+=("Task ${TASK_NUM}: ${TASK_COMMIT}")
 ```
 
-**Atomic commit benefits:**
-- Each task independently revertable
-- Git bisect finds exact failing task
-- Git blame traces line to specific task context
-- Clear history for Gemini in future sessions
-- Better observability for AI-automated workflow
-
 </task_commit>
 
 <step name="checkpoint_protocol">
 When encountering `type="checkpoint:*"`:
 
-**Critical: Gemini automates everything with CLI/API before checkpoints.** Checkpoints are for verification and decisions, not manual work.
+**Critical: Claude automates everything with CLI/API before checkpoints.** Checkpoints are for verification and decisions, not manual work.
 
 **Display checkpoint clearly:**
 
@@ -1279,7 +1106,7 @@ Options:
 **For checkpoint:human-action (1% - rare, only for truly unavoidable manual steps):**
 
 ```
-I automated: [what Gemini already did via CLI/API]
+I automated: [what Claude already did via CLI/API]
 
 Need your help with: [the ONE thing with no CLI/API - email link, 2FA code]
 
@@ -1299,7 +1126,7 @@ I'll verify after: [verification]
 - If verification passes or N/A: continue to next task
 - If verification fails: inform user, wait for resolution
 
-See ~/.gemini/get-shit-done/references/checkpoints.md for complete checkpoint guidance.
+See ~/.claude/get-shit-done/references/checkpoints.md for complete checkpoint guidance.
 </step>
 
 <step name="checkpoint_return_for_orchestrator">
@@ -1433,7 +1260,7 @@ grep -A 50 "^user_setup:" .planning/phases/XX-name/{phase}-{plan}-PLAN.md | head
 
 **If user_setup exists and is not empty:**
 
-Create `.planning/phases/XX-name/{phase}-USER-SETUP.md` using template from `~/.gemini/get-shit-done/templates/user-setup.md`.
+Create `.planning/phases/XX-name/{phase}-USER-SETUP.md` using template from `~/.claude/get-shit-done/templates/user-setup.md`.
 
 **Content generation:**
 
@@ -1494,7 +1321,7 @@ Set `USER_SETUP_CREATED=true` if file was generated, for use in completion messa
 
 <step name="create_summary">
 Create `{phase}-{plan}-SUMMARY.md` as specified in the prompt's `<output>` section.
-Use ~/.gemini/get-shit-done/templates/summary.md for structure.
+Use ~/.claude/get-shit-done/templates/summary.md for structure.
 
 **File location:** `.planning/phases/XX-name/{phase}-{plan}-SUMMARY.md`
 
@@ -1889,7 +1716,7 @@ Summary: .planning/phases/{phase-dir}/{phase}-{plan}-SUMMARY.md
 
 `/gsd:execute-phase {phase}`
 
-`/clear` first → fresh context window
+<sub>`/clear` first → fresh context window</sub>
 
 ---
 
@@ -1950,7 +1777,7 @@ All {Y} plans finished.
 
 `/gsd:plan-phase {Z+1}`
 
-`/clear` first → fresh context window
+<sub>`/clear` first → fresh context window</sub>
 
 ---
 
@@ -1988,7 +1815,7 @@ All {Y} plans finished.
 
 `/gsd:complete-milestone`
 
-`/clear` first → fresh context window
+<sub>`/clear` first → fresh context window</sub>
 
 ---
 

@@ -1,9 +1,9 @@
 {
-  "name": "get-shit-done-gemini",
-  "version": "1.9.1-g",
-  "description": "A meta-prompting, context engineering and spec-driven development system for Gemini CLI by TÂCHES.",
+  "name": "get-shit-done-cc",
+  "version": "1.9.13",
+  "description": "A meta-prompting, context engineering and spec-driven development system for Claude Code by TÂCHES.",
   "bin": {
-    "get-shit-done-gemini": "bin/install.js"
+    "get-shit-done-cc": "bin/install.js"
   },
   "files": [
     "bin",
@@ -14,18 +14,18 @@
     "scripts"
   ],
   "keywords": [
+    "claude",
+    "claude-code",
     "ai",
     "meta-prompting",
     "context-engineering",
-    "spec-driven-development",
-    "gemini",
-    "gemini-cli"
+    "spec-driven-development"
   ],
-  "author": "Cars10",
+  "author": "TÂCHES",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Cars-10/get-shit-done-gemini.git"
+    "url": "git+https://github.com/glittercowboy/get-shit-done.git"
   },
   "homepage": "https://github.com/glittercowboy/get-shit-done",
   "bugs": {
@@ -34,14 +34,9 @@
   "engines": {
     "node": ">=16.7.0"
   },
-  "contributors": [
-    "TÂCHES (Original Author)"
-  ],
-  "upstream": "https://github.com/glittercowboy/get-shit-done.git",
   "dependencies": {},
   "devDependencies": {
-    "esbuild": "^0.24.0",
-    "sql.js": "^1.12.0"
+    "esbuild": "^0.24.0"
   },
   "scripts": {
     "build:hooks": "node scripts/build-hooks.js",
